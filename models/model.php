@@ -8,26 +8,8 @@ class Model {
           $this->connect = new connection();
      }
 
-     function list_users($id,$username,$password,$name,$email){
-
-
-		$sql = "INSERT INTO users(
-	    					username,
-	    					password,
-	    					name,
-						    email
-	    					) VALUES (
-	    					'$username',
-	    					'$password',
-						    '$name',
-	    					'$email'
-	    					)";
-					    // thực thi câu $sql với biến conn lấy từ file connection.php
-   		$query = mysqli_query($conn,$sql);
-
-		return $query;
-	}
-	if (isset($_POST["btn_submit"])) {
+     public function listUser($data =[]){
+     	if (isset($_POST["btn_submit"])) {
   			//lấy thông tin từ các form bằng phương thức POST
 			$id = $_POST["id"];
   			$username = $_POST["username"];
@@ -39,23 +21,38 @@ class Model {
   			//Kiểm tra điều kiện bắt buộc đối với các field không được bỏ trống
 			  if ($username == "" || $password == "" || $name == "" || $email == "") {
 				   echo "Bạn vui lòng nhập đầy đủ thông tin";
-  			}else{
-  				list_users($id,$username,$password, $name, $email);
-	        // Trở về trang danh sách
-  				echo "Chúc mừng bạn đã đăng ký thành công";
-  			}
+  				}else{	
 
-
-	public function add(){
-
+					$sql = "INSERT INTO users(
+				    					username,
+				    					password,
+				    					name,
+									    email
+				    					) VALUES (
+				    					'$username',
+				    					'$password',
+									    '$name',
+				    					'$email'
+				    					)";
+  				if(mysqli_query($this->connect->connect(),$sql)=="true" ){
+					echo "Chúc mừng bạn đã đăng ký thành công";	
+					}
+				}
+			}
+		}
 	}
 	
-	public function edit($id){
 
-	}
+	// public function add(){
 
-	public function delete($id){
+	// }
+	
+	// public function edit($id){
 
-	}
-}
+	// }
+
+	// public function delete($id){
+
+	// }
+
 ?>
