@@ -41,17 +41,58 @@ class Model {
 
 	
 
-	// public function listUser(){
+	public function listUser(){
 	 
 
-	//         $sql= "SELECT * from users";
-	//         $query = mysqli_query($conn,$sql);
-	//         while($row = mysqli_fetch_assoc($query))
-	//         {
-	   
-	         
-	// 	}
-	// }
+	        $sql= "SELECT * from users";
+	       	return $rows = mysqli_query($this->connect->connect(), $sql);
+	}
+	function deleteSql(){
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
+			$sql = "DELETE FROM users WHERE id ='$id'";
+			if(mysqli_query($this->connect->connect(),$sql)){
+				echo "Xoa thanh cong";
+				//header("location:view/view.php");
+			}
+			else{
+				echo "Xoa khong thanh cong, hay thu lai";
+			}
+		}
+	}
+	function setToUpdate(){
+
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
+			$sql = "SELECT * FROM users WHERE id='$id'";
+			$result = mysqli_query($this->connect(),$sql);
+			$arr = array();
+			while($rows = mysqli_fetch_assoc($result)){
+				$name = $rows['name'];
+				echo "$name";die;
+				$email = $rows['email'];
+				$username = $rows['username'];
+				$password= $rows['password'];
+				$arr = $rows;
+			}
+			return $arr;
+		}
+		
+		
+	}
+
+	function update(){
+		if(isset($_POST['submit'])){
+			$name= $_POST['name'];
+			$email = $_POST['email'];
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$sql = "UPDATE users SET name ='$name',email ='$email',username ='$username',password = '$password'WHERE id = '$id'";
+			 $result = mysqli_query($this->connect->connect(),$sql);
+			 echo "Updated";
+
+			}
+	}
 }
 	
 	// public function edit($id){

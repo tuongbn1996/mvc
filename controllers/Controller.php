@@ -19,22 +19,24 @@ class Controller {
 
     }
   
-  //   public function addUser(){
-  //     $users=$this->model->add($_POST);
-  //     include 'view/insert.php';
+    public function listUser(){
+      $rows=$this->model->listUser($_POST);
+      include 'views/view.php';
     	
-	 // }
+	 }
+   function delete(){
+    $rows = $this->model->deleteSql($_POST);
+    include "views/view.php";
+  }
 	
-	 // public function editUser(){
-		// $users=$this->model->edit($_POST);
-  //   include 'view/update.php';
-
-	 // }
-
-	 // public function deleteUser(){
-  //     $users=$this->model->delete($_POST);
-  //     include 'view/viewbook.php';
-	 // }
+	 function setToUpdate(){
+    $arr = $this->model->setToUpdate($_POST);
+    include "views/viewUpdate.php";
+  }
+  function update(){
+    $arr = $this->model->update($_POST);
+    include "views/viewUpdate.php";  
+  }
 
 }
 ?>
