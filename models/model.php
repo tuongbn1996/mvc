@@ -63,26 +63,30 @@ class Model {
 	function setToUpdate(){
 
 		if(isset($_GET['id'])){
+
 			$id = $_GET['id'];
 			$sql = "SELECT * FROM users WHERE id='$id'";
-			$result = mysqli_query($this->connect(),$sql);
+			$result = mysqli_query($this->connect->connect(),$sql);
 			$arr = array();
 			while($rows = mysqli_fetch_assoc($result)){
 				$name = $rows['name'];
-				echo "$name";
+				
 				$email = $rows['email'];
 				$username = $rows['username'];
 				$password= $rows['password'];
 				$arr = $rows;
+
 			}
 			return $arr;
 		}
+		
 		
 		
 	}
 
 	function update(){
 		if(isset($_POST['submit'])){
+			$id = $_GET['id'];
 			$name= $_POST['name'];
 			$email = $_POST['email'];
 			$username = $_POST['username'];

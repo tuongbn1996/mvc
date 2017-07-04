@@ -43,7 +43,7 @@
 								
 								<td>
                     				
-                    				<a href="update.php?username=<?php echo $row['username'];?>">Update</a> 
+                    				<a href="update.php?id=<?php echo $row['id'];?>">Update</a> 
 
                					</td>
                					<td>

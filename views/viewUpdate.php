@@ -33,7 +33,7 @@
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					
+					 <?php //var_dump($arr['name']);?>
 					<form class="form-horizontal" method="POST" id= "submit" action="" >
 						
 						<div class="form-group">
