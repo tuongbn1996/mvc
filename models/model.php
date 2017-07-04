@@ -69,7 +69,7 @@ class Model {
 			$arr = array();
 			while($rows = mysqli_fetch_assoc($result)){
 				$name = $rows['name'];
-				echo "$name";die;
+				echo "$name";
 				$email = $rows['email'];
 				$username = $rows['username'];
 				$password= $rows['password'];
