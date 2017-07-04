@@ -1,5 +1,5 @@
 <?php
-include_once("models/model.php");
+include("models/model.php");
 
 class Controller {
 	
@@ -9,12 +9,13 @@ class Controller {
           $this->model = new Model();
      } 
 
-    public function listUser($data = array())
+    public function addUser($data = array())
     {	
       //neu mang rong ==> get all users
       //neu khong rong ==> id, users ......
-    	 $users=$this->model->listUser($_POST);
+    	 $users=$this->model->addUser($_POST);
        include 'views/insert.php';
+       // include 'views/view.php';
 
     }
   
@@ -36,3 +37,4 @@ class Controller {
 	 // }
 
 }
+?>

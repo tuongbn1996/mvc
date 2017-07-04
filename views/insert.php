@@ -75,8 +75,8 @@
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<!-- <form class="form-horizontal" method="post" id = "submit" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> -->
-					<form class="form-horizontal" method="post" id ="submit" action="model.php">
+					<form class="form-horizontal" method="post" id = "submit" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<!-- <form class="form-horizontal" method="post" id ="submit" action="model.php"> -->
 						 
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Your Name</label>

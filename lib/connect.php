@@ -7,3 +7,4 @@ class connection {
 		return $conn;
 	}	
 }
+?>

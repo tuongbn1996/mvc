@@ -1,6 +1,5 @@
 <?php
 include_once("lib/connect.php");
-
 class Model {
 
 	public function __construct()  
@@ -8,10 +7,10 @@ class Model {
           $this->connect = new connection();
      }
 
-     public function listUser($data =[]){
+     public function addUser($data =[]){
      	if (isset($_POST["btn_submit"])) {
   			//lấy thông tin từ các form bằng phương thức POST
-			$id = $_POST["id"];
+			//$id = $_POST["id"];
   			$username = $_POST["username"];
   			//$password = $_POST["password"];
   			//$hash = password_hash($password, PASSWORD_DEFAULT);
@@ -23,7 +22,7 @@ class Model {
 				   echo "Bạn vui lòng nhập đầy đủ thông tin";
   				}else{	
 
-					$sql = "INSERT INTO users(
+				$sql = "INSERT INTO users(
 				    					username,
 				    					password,
 				    					name,
@@ -34,18 +33,26 @@ class Model {
 									    '$name',
 				    					'$email'
 				    					)";
-  				if(mysqli_query($this->connect->connect(),$sql)=="true" ){
-					echo "Chúc mừng bạn đã đăng ký thành công";	
-					}
+  				mysqli_query($this->connect->connect(),$sql);
+				echo "Chúc mừng bạn đã đăng ký thành công";	
 				}
 			}
 		}
-	}
+
 	
 
-	// public function add(){
+	// public function listUser(){
+	 
 
+	//         $sql= "SELECT * from users";
+	//         $query = mysqli_query($conn,$sql);
+	//         while($row = mysqli_fetch_assoc($query))
+	//         {
+	   
+	         
+	// 	}
 	// }
+}
 	
 	// public function edit($id){
 
