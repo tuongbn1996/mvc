@@ -79,9 +79,7 @@ class Model {
 			}
 			return $arr;
 		}
-		
-		
-		
+			
 	}
 
 	function update(){
